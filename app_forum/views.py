@@ -65,32 +65,6 @@ class UserPostListView(ListView):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')
 
-class UserPostCommentListView(ListView):
-    model=Post
-    template_name = 'app_forum/user_post_comments.html'
-    context_object_name='posts'
-    paginate_by=20
-
-    def get_queryset(self):
-        user = get_object_or_404(User, username=self.kwargs.get('username'))
-        AllUserCommentsList = PostComment.objects.filter(author=user)
-        AllUserCommentsPostsList=[]
-
-        for comment in AllUserCommentsList:
-            AllUserCommentsPostsList.append(comment.post)
-
-        AllUserPosts = Post.objects.filter(author=user)
-
-        for post in AllUserPosts:
-            if post not in AllUserCommentsPostsList:
-                AllUserPosts.pop(post)
-
-        return AllUserPosts.filter(author=user).first()
-
-
-
-
-
 #### comments
 
 class PostCommentDetailView(DetailView):
@@ -113,27 +87,6 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('app_forum:post_detail', pk=post_pk)
-
-# class PostCommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-#     model = PostComment
-#     success_url = '/forum/'
-#
-#     def test_func(self):
-#         post = self.get_object()
-#         if self.request.user == comment.author:
-#             return True
-#         return False
-
-# class UserPostListView(ListView):
-#     model = Post
-#     template_name = 'app_forum/user_posts.html'  # <app>/<model>_<viewtype>.html
-#     context_object_name = 'posts'
-#     paginate_by = 5
-#
-#     def get_queryset(self):
-#         user = get_object_or_404(User, username=self.kwargs.get('username'))
-#         return Post.objects.filter(author=user).order_by('-date_posted')
-
 
 class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = PostComment
