@@ -36,10 +36,4 @@ class UserPostCommentListView(ListView):
         for comment in AllUserComments:
             AllUserCommentsPostList.append(comment.post)
 
-        AllPosts = Post.objects.all()
-        AllPostsList = list(AllPosts)
-        for post in AllPostsList:
-            if post not in AllUserCommentsPostList:
-                AllPostsList.remove(post)
-
-        return AllPostsList
+        return AllUserCommentsPostList
