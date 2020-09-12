@@ -2,9 +2,7 @@
 {% block body_block %}
 <div class="container">
   <div class="jumbotron">
-
-<h1>this is post_detail.html</h1>
-
+<h2 class="article-title">{{ object.title }}</h2>
   <article class="media content-section">
     <div class="media-body">
       <div class="article-metadata">
@@ -17,7 +15,7 @@
           </div>
         {% endif %}
       </div>
-      <h2 class="article-title">{{ object.title }}</h2>
+
       <p class="article-content">{{ object.content|safe }}</p>
     </div>
   </article>
