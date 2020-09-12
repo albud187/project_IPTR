@@ -1,0 +1,17 @@
+{% extends 'tools0.html'%}
+
+
+{% block tool_block %}
+
+<p><strong>Correlation Matrix</strong><br> {{tools5_result | safe}} </p>
+<p><strong>Interpretation of Results</strong></p>
+
+<p>Each number on this table is the correlation between 2 tickers. A higher correlation means that the two tickers' price movements are more similar and vice versa.</p>
+<p>A correlation of 1.00  or close to one means that the two assets' price movements are nearly identical in direction.
+  <br>For example, QQQ,IXN and XLK all have correlations greater than 0.95, as they all have similar hodings; all 3 are concentrated in the tech sector</p>
+<p>A correlation of -1.00 means that the two assets' price movements are almost opposite in direction.
+  <br>For example TQQQ (3x leveraged QQQ) and SQQQ ( 3x leveraged <strong>inverse</strong> QQQ)
+have a correlation close to -1.00 as their price movements are opposite from each other.</p>
+
+
+{% endblock %}

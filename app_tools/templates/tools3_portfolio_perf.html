@@ -1,0 +1,87 @@
+{% extends 'tools0.html'%}
+
+
+{% block tool_block %}
+
+<h1>Porfolio Backtest Plot</h1>
+<br>
+
+<div class="container">
+<div class="row">
+<div class="col">
+
+<div class="container">
+<form action ="tools3_result">
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Portfolio Holdings</label>
+      <input type="text" name="holdings" >
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Start Date</label>
+      <input type="text" name="start">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">End Date</label>
+      <input type="text" name="end">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Cash</label>
+      <input type="text" name="investment" >
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Leverage</label>
+      <input type="text" name="levr">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Interest Rate</label>
+      <input type="text" name="int_rate">
+  </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Benchmark</label>
+      <input type="text" name="benchmark">
+  </div>
+
+<input class="btn btn-primary" type="submit" value= "Plot">
+
+</form>
+</div>
+</div>
+
+<br>
+<div class="col-8">
+  <p>This tool plots historical performance of the input portfolio, both levered and unlevered as well as a benchmark index between the start and end dates.</p>
+  <p><strong>Portfolio Holdings: </strong>list of tickers and their percent of capital allocation in the form ticker1:allocation1,ticker2:allocation2,ticker3:allocation3... (no space).
+Example: SPY:30,QQQ:35,IWM:25,GDX:10</p>
+  <p><strong>Start/End Date: </strong>Date in format YYYY,MM,DD</p>
+  <p><strong>Cash: </strong> How much of actual cash (not borrowed) is invested. Enter in numerical format, no dollar signs. For example: 1230.59.</p>
+  <p><strong>Leverage: </strong>Ratio of (Cash + borrowed money)/(Cash). For example, if I invest $1500, using $1000 of my own cash and borrowing $500, that is a leverage of 1.5.</p>
+  <p><strong>Interest Rate: </strong> Annual interest rate to borrow money expressed as a decimal. <br>Example: 0.015 corresponds to 1.5% interest rate.</p>
+  <p><strong>Benchmark: </strong>A stock to which the portfolio will be compared. While you can use any ticker, it is reccomended to use an index fund such as SPY.</p>
+
+  {% if messages %}
+
+  {% for message in messages %}
+  <div class="alert alert-d">
+  {{message}}
+
+  </div>
+
+  {%endfor %}
+
+  {% endif %}
+
+
+
+</div>
+
+
+
+{% endblock %}

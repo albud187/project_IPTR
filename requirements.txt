@@ -1,0 +1,8 @@
+django 3.0.7
+six
+pandas
+datetime
+matplotlib
+pandas_datareader
+bootstrap4
+validate_email

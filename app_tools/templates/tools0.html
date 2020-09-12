@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+<div class="row">
+
+  <div class="col-2">
+    <div class="list-group" >
+      <a class="list-group-item list-group-item-action" id="" data-toggle="list" href="{% url 'app_tools:tools1' %}" role="tab" aria-controls="profile">Portfolio Optimizer</a>
+      <a class="list-group-item list-group-item-action" id="" data-toggle="list" href="{% url 'app_tools:tools2' %}" role="tab" aria-controls="profile">Leverage Calculator</a>
+      <a class="list-group-item list-group-item-action" id="" data-toggle="list" href="{% url 'app_tools:tools3' %}" role="tab" aria-controls="profile">Portfolio Backtest</a>
+      <a class="list-group-item list-group-item-action" id="" data-toggle="list" href="{% url 'app_tools:tools4' %}" role="tab" aria-controls="profile">Benchmark</a>
+      <a class="list-group-item list-group-item-action" id="" data-toggle="list" href="{% url 'app_tools:tools5' %}" role="tab" aria-controls="profile">Correlation Matrix</a>
+    </div>
+  </div>
+
+
+    <div class="col-8">
+
+      <div class="jumbotron">
+{% block tool_block %}
+
+      <h1 class="display-4"><strong>Portfolio Tools Overview</strong></h1>
+      <br>
+      <p>Note: Each input must be entered <strong>exactly</strong> as described or the calculation will not work</p>
+
+      <br>
+      <p><strong>Portfolio Optimizer: </strong>Simulates portfolio allocations of input stocks over a specified timeframe. Returns portfolio allocation with greatest sharpe ratio.</p>
+      <p><strong>Leverage Calculator: </strong>Calculates leverage needed to enable a portfolio to reach a target expected return, or acceptable expected risk.</p>
+      <p><strong>Portfolio Performance: </strong>Plots historical portfolio performance with and without leverage as well as comparison with a benchmark.</p>
+      <p><strong>Benchmark: </strong>Calculates returns, sharpe ratio and risk of benchmarks indices.</p>
+      <p><strong>Correlation Matrix: </strong>Calculates the correlation between several stocks as well as a custom portfolio.</p>
+
+
+{% endblock %}
+</div><!-- /.jumbotron -->
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'tools0.html'%}
+
+
+{% block tool_block %}
+
+<p><strong>Levered Portfolio</strong></p>
+<br>
+{{tools2_result_risk  | safe}}
+<br>
+<p><strong>Interpretation of Results</strong></p>
+<p><strong>ret: </strong>Average annual returns of user input portfolio (without leverage) expressed as a decimal. For example, 0.0852 would correspond to 8.52% annual return.</p>
+<p><strong>stdev: </strong>Average annual standard of user input portfolio (without leverage) deviation of returns of portfolio as a decimal. For example, 0.0852 would correspond to 8.52% annual standard deviation.</p>
+<p><strong>sharpe: </strong>Sharpe Ratio of user input portfolio (without leverage), returns divided by standard deviation.</p>
+<p><strong>Tickers: </strong>Portfolio allocation percentage expressed as decimal. From user input.</p>
+<p><strong>leverage: </strong>Ratio of (Cash + borrowed money)/(Cash) required to lever to risk tolerance.</p>
+<p><strong>levered ret: </strong>Average annual returns of user input portfolio (<strong>with leverage</strong>) expressed as a decimal. For example, 0.0852 would correspond to 8.52% annual return.</p>
+<p><strong>levered stdev: </strong>Average annual standard of user input portfolio (<strong>with leverage</strong>) standard deviation of returns of portfolio as a decimal. For example, 0.0852 would correspond to 8.52% annual standard deviation. From user input.</p>
+<p><strong>sharpe: </strong>Sharpe Ratio of user input portfolio (<strong>with leverage</strong>), returns divided by standard deviation.</p>
+
+
+{% endblock %}

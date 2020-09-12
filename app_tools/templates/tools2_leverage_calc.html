@@ -1,0 +1,114 @@
+{% extends 'tools0.html'%}
+
+
+{% block tool_block %}
+<h1>Leverage Calculator </h1>
+<br>
+
+
+<div class="container">
+<div class="row">
+<div class="col">
+
+<p><strong>Lever to Target Return</strong></p>
+<form action ="tools2_result_return">
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Portfolio Holdings</label>
+      <input type="text" name="holdings" >
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Start Date</label>
+      <input type="text" name="start">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">End Date</label>
+      <input type="text" name="end">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Interest Rate</label>
+      <input type="text" name="int_rate">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Target Return</label>
+      <input type="text" name="tgt_rtn">
+  </div>
+<input class="btn btn-primary" type="submit" value= "calculate">
+
+</form>
+<br>
+
+<p><strong>Lever to Risk Tolerance</strong></p>
+<form action ="tools2_result_risk">
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Portfolio Holdings</label>
+      <input type="text" name="holdings2" >
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Start Date</label>
+      <input type="text" name="start2">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">End Date</label>
+      <input type="text" name="end2">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Interest Rate</label>
+      <input type="text" name="int_rate2">
+  </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-sm-5 col-form-label">Risk Tolerance</label>
+      <input type="text" name="tgt_risk">
+  </div>
+
+<input class="btn btn-primary" type="submit" value= "calculate">
+
+</form>
+</div>
+
+<div class="col-8">
+<p>This tool takes in a portfolio, and using historical returns / risk between the start and end date calculates the leverage needed based on a target return or an acceptable risk tolerance </p>
+<p><strong>Portfolio Holdings: </strong>list of tickers and their percent of capital allocation in the form ticker1:allocation1,ticker2:allocation2,ticker3:allocation3... (no space).
+<br>Example: SPY:30,QQQ:35,IWM:25,GDX:10
+<br>note: holdings must be positive and must add to 100</p>
+
+
+<p><strong>Interest Rate: </strong>Annual interest rate to borrow money expressed as a decimal.
+<br>Example: 0.015 corresponds to 1.5% interest rate</p>
+<p><strong>Start / End Date:</strong> Date in format YYYY,MM,DD.</p>
+
+<p><strong>Target Return: </strong> Target expected return expressed as a decimal.
+<br>Example: 0.11 corresponds to 11% expected annual returns</p>
+<p><strong>Risk Tolerance: </strong> Expected annual standard deviation of returns expressed as a decimal
+<br>Example: 0.09 corresponds to a 9% standard deviation of expected returns.
+<br>note: must be positive number for result to make sense</p>
+
+{% if messages %}
+
+{% for message in messages %}
+<div class="alert alert-d">
+{{message}}
+
+</div>
+
+{%endfor %}
+
+{% endif %}
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+{% endblock %}

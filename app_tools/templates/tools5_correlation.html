@@ -1,0 +1,51 @@
+{% extends 'tools0.html'%}
+
+
+{% block tool_block %}
+<h1>Correlation Matrix Calculator</h1>
+<br>
+<div class="container">
+<form action ="tools5_result">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Tickers</label>
+      <input type="text" name="tickers" >
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Portfolio Holdings</label>
+      <input type="text" name="holdings">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Start Date</label>
+      <input type="text" name="start">
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">End Date</label>
+      <input type="text" name="end">
+  </div>
+<input class="btn btn-primary" type="submit" value= "calculate">
+
+</form>
+</div>
+<br>
+<p>This tool returns a table listing the correlations between the input tickers and the input portfolio. </p>
+<p><strong>Tickers:</strong> Input a list of tickers to exampine for correlations in the form ticker1, ticker2, ticker 3.<br>For example: QQQ, IWM, SPY </p>
+<p><strong>Holdings: </strong>list of tickers and their percent of capital allocation in the form ticker1:allocation1,ticker2:allocation2,ticker3:allocation3... (no space).
+<br>Example: SPY:30,QQQ:35,IWM:25,GDX:10</p>
+<p><strong>Start/End Date: </strong>Date in format YYYY,MM,DD.</p>
+
+{% if messages %}
+
+{% for message in messages %}
+<div class="alert alert-d">
+{{message}}
+
+</div>
+
+{%endfor %}
+
+{% endif %}
+
+{% endblock %}

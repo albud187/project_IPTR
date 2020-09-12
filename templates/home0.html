@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+{% load static %}
+
+<div class="container">
+  <div class="jumbotron 8">
+{% if user.is_authenticated %}
+
+    <h1>Welcome to interactiveprinters.com</h1>
+    <a href="https://finviz.com/quote.ashx?t=QQQ "><h1>RIP_BEARMARKET_FEB2020-MAR2020 #RecessionCancelled</h1></a>
+    <a href="https://www.youtube.com/watch?v=GI7sBsBHdCk "><img src="{% static "images/JPOW.jpg" %}" alt = "cant find image" ></a>
+
+
+{%else%}
+<h1>you must be logged in to see this page</h1>
+
+{% endif %}
+
+
+</div>
+</div>
+{% endblock %}

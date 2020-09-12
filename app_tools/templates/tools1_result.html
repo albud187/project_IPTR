@@ -1,0 +1,16 @@
+{% extends 'tools0.html'%}
+
+
+{% block tool_block %}
+
+<p><strong>Optimal portfolio</strong></p>
+<br>
+<p>{{tools1_result | safe}}</p>
+<br>
+<p><strong>Interpretation of Results</strong></p>
+<p><strong>ret: </strong>Average annual returns expressed as a decimal. For example, 0.0852 would correspond to 8.52% annual return</p>
+<p><strong>stdev: </strong>Average annual standard deviation of returns as a decimal. For example, 0.0852 would correspond to 8.52% annual standard deviation</p>
+<p><strong>sharpe: </strong>Sharpe Ratio, returns divided by standard deviation</p>
+<p><strong>Tickers: </strong>Portfolio allocation percentage expressed as decimal.</p>
+These results came from a simulation of several random portfolios and may vary.
+{% endblock %}

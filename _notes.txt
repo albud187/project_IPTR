@@ -1,0 +1,13 @@
+to do list
+
+-fama french factor investing tools?
+
+user profile will have:
+-post list
+-comment list
+-email
+
+public profile
+
+post comments
+https://stackoverflow.com/questions/60955685/not-null-constraint-failed-posts-comment-post-id-django

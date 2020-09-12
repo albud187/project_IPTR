@@ -1,0 +1,45 @@
+{% extends 'tools0.html'%}
+
+
+{% block tool_block %}
+
+<div class="container">
+
+
+<h1>Benchmark Performance</h1>
+<br>
+<form action ="tools4_result">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Tickers</label>
+      <input type="text" name="indices" >
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Start Date</label>
+      <input type="text" name="start">
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">End Date</label>
+      <input type="text" name="end">
+  </div>
+  <input class="btn btn-primary" type="submit" value = "Calculate">
+</form>
+</div>
+<br>
+<p>This tool returns a table listing the historical average returns, standard deviation (risk) and sharpe ratio of the input stocks between the start and end date.</p>
+<p><strong>Tickers: </strong>Stocks of interest for historical performance. While you can use any ticker, it is reccomended to use an index ETF such as SPY.
+<br>Enter the data in the form ticker1,ticker2,ticker3, for example: SPY,VTI,QQQ</p>
+<p><strong>Start/End Date: </strong>Date in format YYYY,MM,DD</p>
+
+{% if messages %}
+
+{% for message in messages %}
+<div class="alert alert-d">
+{{message}}
+
+</div>
+
+{%endfor %}
+
+{% endif %}
+
+{% endblock %}

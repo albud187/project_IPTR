@@ -1,0 +1,12 @@
+{% extends 'tools0.html'%}
+
+
+{% block tool_block %}
+
+<p><strong>Benchmark</strong><br> {{tools4_result | safe}} </p>
+<br>
+<p><strong>Interpretation of Results</strong></p>
+<p><strong>ret: </strong>Average annual returns of stock expressed as a decimal. For example, 0.0852 would correspond to 8.52% annual return.</p>
+<p><strong>stdev: </strong>Average annual standard deviation of returns of stock as a decimal. For example, 0.0852 would correspond to 8.52% annual standard deviation.</p>
+<p><strong>sharpe: </strong>Sharpe Ratio of stock, returns divided by standard deviation.</p>
+{% endblock %}

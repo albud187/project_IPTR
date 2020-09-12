@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block body_block %}
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Provide your email to recieve password reset instructions</h1>
+    <br>
+    <form action="{% url 'request-reset-email' %}" method="post">
+
+                                    {% csrf_token %}
+
+    <div class="form-group">
+    <input class="form-control form-control-sm" type="email" name="email" value="{{data.email}}" placeholder="Email">
+
+    </div>
+    <input type="submit" value="Submit" class="btn btn-sm btn-primary"/>
+
+    </form>
+
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-d">
+    {{message}}
+
+    </div>
+
+    {%endfor %}
+
+    {% endif %}
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
