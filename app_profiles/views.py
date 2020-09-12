@@ -28,8 +28,6 @@ class PublicProfileView(TemplateView):
         context['email'] = email
         return context
 
-
-
 class UserPostListView(ListView):
     model = Post
     template_name = 'user_posts.html'  # <app>/<model>_<viewtype>.html
