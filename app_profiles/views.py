@@ -32,7 +32,7 @@ class PublicProfileView(TemplateView):
 
 class UserPostListView(ListView):
     model = Post
-    template_name = 'app_forum/user_posts.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'user_posts.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'posts'
     paginate_by = 20
 
@@ -42,7 +42,7 @@ class UserPostListView(ListView):
 
 class UserPostCommentListView(ListView):
     model=Post
-    template_name = 'app_forum/user_post_comments.html'
+    template_name = 'user_post_comments.html'
     context_object_name='posts'
     paginate_by=20
 
@@ -53,4 +53,4 @@ class UserPostCommentListView(ListView):
         for comment in AllUserComments:
             AllUserCommentsPostList.append(comment.post)
 
-        return AllUserCommentsPostList
+        return list(dict.fromkeys(AllUserCommentsPostList))
