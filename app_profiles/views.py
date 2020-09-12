@@ -6,11 +6,28 @@ from django.contrib.auth.models import User
 
 from app_forum.models import Post, PostComment
 
+
 class PublicProfileView(TemplateView):
 
     template_name = 'user_profile_public.html'
-    def get_queryset(self):
+    def get_queryset(self, request):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
+    #
+    # def get(self, request,*args, **kwargs):
+    #     user = get_object_or_404(User, username=self.kwargs.get('username'))
+    #     userObject = User.objects.filter(username=user)[0]
+    #     email = userObject.email
+    #     context['email'] = email
+    #     return render(request, 'user_profile_public.html', context)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        userObject = User.objects.filter(username=user)[0]
+        email = userObject.email
+        context['email'] = email
+        return context
+
 
 
 class UserPostListView(ListView):
