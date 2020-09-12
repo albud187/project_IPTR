@@ -9,26 +9,30 @@ from app_forum.models import Post, PostComment
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
+from .models import Profile
+
+
+users_without_profile = User.objects.filter(profile__isnull=True)
+for user in users_without_profile:
+    Profile.objects.create(user=user)
 
 class PublicProfileView(TemplateView):
 
     template_name = 'user_profile_public.html'
     def get_queryset(self, request):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
-    #
-    # def get(self, request,*args, **kwargs):
-    #     user = get_object_or_404(User, username=self.kwargs.get('username'))
-    #     userObject = User.objects.filter(username=user)[0]
-    #     email = userObject.email
-    #     context['email'] = email
-    #     return render(request, 'user_profile_public.html', context)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = get_object_or_404(User, username=self.kwargs.get('username'))
+
         userObject = User.objects.filter(username=user)[0]
         email = userObject.email
         context['email'] = email
+
+        profile = Profile.objects.filter(user=user)[0]
+        aboutString = profile.about
+        context['about'] = aboutString
         return context
 
 class UserPostListView(ListView):

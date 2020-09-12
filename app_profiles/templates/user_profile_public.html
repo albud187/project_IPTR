@@ -4,7 +4,8 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h2>About <strong>{{username}}</strong></h2>
+    <h2><strong>{{username}}</strong></h2>
+    <p><strong>About: </strong>{{about}}</p>
     <p><strong>Email:</strong> {{email}} </p>
     <h3><a href="{% url 'app_profiles:user_posts' username %}">Posts by {{username}} </a></h3>
     <h3><a href="{% url 'app_profiles:user_posts_comments' username %}">Posts commented by {{username}}</a></h3>
