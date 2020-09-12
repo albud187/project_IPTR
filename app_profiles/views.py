@@ -27,7 +27,7 @@ class UserPostCommentListView(ListView):
     model=Post
     template_name = 'app_forum/user_post_comments.html'
     context_object_name='posts'
-    # paginate_by=20
+    paginate_by=20
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
