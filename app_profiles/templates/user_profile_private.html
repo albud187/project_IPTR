@@ -10,12 +10,13 @@
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
+          <h3><a href="{% url 'app_profiles:user_posts' user.username %}">Posts by {{user.username}} </a></h3>
+          <h3><a href="{% url 'app_profiles:user_posts_comments' user.username %}">Posts commented by {{user.username}}</a></h3>
         </div>
       </div>
       <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="form-group">
-              <legend class="border-bottom mb-4">Profile Info</legend>
               {{ u_form|crispy }}
               {{ p_form|crispy }}
           </fieldset>
