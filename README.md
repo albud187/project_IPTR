@@ -3,7 +3,7 @@ Hosted on https://interactiveprinters.pythonanywhere.com/
 
 Resources used:
 
-corey schafer's django tutorial
+corey schafer's django tutorial<br>
 https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p
 https://github.com/CoreyMSchafer/code_snippets/tree/master/Django_Blog
 
