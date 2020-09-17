@@ -1,4 +1,7 @@
 # project_IPTR
+
+Statistical portfolio investing tools and a minimalistic forum
+
 Hosted on https://interactiveprinters.pythonanywhere.com/
 
 Resources used:
@@ -16,5 +19,3 @@ https://www.codingfinance.com/
 Semy Colon's django authorization tutorial <br>
 https://www.youtube.com/watch?v=eu0DVe7RkiY&list=PLx-q4INfd95H5uJKX0edqpbFHVXGrB1Pc
 https://github.com/CryceTruly/djangoauthenticationapp
-
-
